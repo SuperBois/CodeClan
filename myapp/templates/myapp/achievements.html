@@ -1,0 +1,46 @@
+{% extends 'myapp/base.html'  %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/viewProblems.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<section class="home-section">
+</style>
+    </head>
+
+        <body>
+
+            <table style="width:100%" ;>
+                <thead>
+                    <tr>
+                        <th>Number</th>
+                        <th>Achievement name</th>
+                        <th>Date of Achievement</th>
+                    </tr>
+                </thead>
+                <caption><b>
+                        <!-- <h2>Explore Probelms</h2>
+                    </b></caption> -->
+                <!-- {% for problem in problemset %}
+                <tr>
+                    <td>{{problem.problem_id}}</td>
+                    <td>{{problem.problem_name}}</td>
+                    <td>{{problem.difficulty_level}}</td>
+                    <td>{{problem.acceptance_rate}}</td>
+                    <td>{{problem.category}}</td>
+                    <td><a href='{% url "solve" problem.problem_id %}'>Solve</a></td>
+                </tr>
+                {%endfor%} -->
+            </table>
+
+        </body>
+
+        </html>
+        
+        </section>
+    </section>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+{% block css%}
+    <link rel="stylesheet" href= "{% static 'css/main.css' %}"> 
+{% endblock %}
+
+{% block sidenavbar  %}
+{% endblock %}
+{% block content %}
+
+    <h2 style='padding-left:100px;background:rgb(28, 172, 177); height: 50px; text-align: center; text-anchor: middle;'>Developers</h2>
+     <section class="testimonials-section">
+        <div class="container">
+            <ul class="testies">
+                <li>
+                    <img src="{% static 'images/sheraz.jpg' %}" alt="Person">
+
+                    <blockquote style="font-size: 15px; font-family: Poppins;">
+                        Muhammad Mustafa
+                    </blockquote>
+                </li>
+                <li>
+                    <img src="{% static 'images/sheraz.jpg' %}" alt="Person">
+
+                    <blockquote style="font-size: 15px; font-family: Poppins;">
+                        Syed Sheraz Hussain
+                    </blockquote>
+                </li>
+                <li>
+                    <img src="{% static 'images/sheraz.jpg' %}" alt="Person">
+
+                    <blockquote style="font-size: 15px; font-family: Poppins;">
+                        Syed Muhammad Zafar
+                    </blockquote>
+                </li>
+
+            </ul>
+        </div>
+    </section>
+
+{% endblock %}

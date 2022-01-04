@@ -1,0 +1,173 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/adminDashboard.css' %}">
+{% endblock %}
+<body>
+
+{% block sidenavbar %}
+    <div class="hero">
+        <div class="sidebar">
+            <div class="logo-details">
+                <p>ADMINISTRATOR</p>
+            </div>
+            <ul class="nav-list">
+
+                <li>
+                    <a href="#">
+
+                        <span class="links_name">View Users</span>
+                    </a>
+                </li>
+                <li>
+
+
+                    <a href="#">
+
+                        <span class="links_name">Manage Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+
+
+
+                        <span class="links_name">Manage Roles</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="links_name">View Database</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="links_name">Manage Database</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="links_name">View Site Data</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="links_name">Manage Site Data</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        let sidebar = document.querySelector(".sidebar");
+        sidebar.classList.toggle("open");
+    </script>
+{%endblock%}
+
+{%block content%}
+    <div class="home-section">
+        <h2>View Users</h2>
+        <hr>
+        <div class="logged-in-data">
+            <p>Logged in users:</p>
+            <p id="logged-in-users">XYZ</p>
+        </div>
+        <div class="logged-in-box">
+            <table style="width:100%" ;>
+                <thead id="thread">
+                    <tr>
+                        <th>Username`</th>
+                        <th>Role</th>
+                        <th>Full Name</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td id="s">Sheraz</td>
+                    <td id="s-role">Participant</td>
+                    <td id="s-fname"> Syed Sheraz Hussain</td>
+                </tr>
+
+                <tr>
+                    <td id="m">Mustafa</td>
+                    <td id="m-role">Judge</td>
+                    <td id="m-fname">Muhammad Mustafa</td>
+                </tr>
+
+                <tr>
+                    <td id="z">Zafar</td>
+                    <td id="z-role">Participant</td>
+                    <td id="z-fname">Muhammad Zafar</td>
+                </tr>
+            </table>
+
+        </div>
+
+
+        <hr id="hr=element">
+
+
+        <div class="all-data">
+            <p>Offline Users:</p>
+            <p id="all-users">XYZ</p>
+        </div>
+        <div class="offline-box">
+            <table style="width:100%" ;>
+                <thead id="thread">
+                    <tr>
+                        <th>Username`</th>
+                        <th>Role</th>
+                        <th>Full Name</th>
+                    </tr>
+                </thead>
+                
+                <tr>
+                    <td id="d">Danish</td>
+                    <td id="d-role">Instructor</td>
+                    <td id="d-fname">Muhammad Daneesh</td>
+                </tr>
+                <tr>
+                    <td id="t">Taha</td>
+                    <td id="t-role">Participant</td>
+                    <td id="t-fname">Muhammad Taha</td>
+                </tr>
+                <tr>
+                    <td id="k">Khubaib</td>
+                    <td id="k-role">Participant</td>
+                    <td id="k-fname">Khubaib Ahmad</td>
+                </tr>
+                <tr>
+                    <td id="a">Awan</td>
+                    <td id="a-role">Instructor</td>
+                    <td id="a-fname">Abdullah Awan</td>
+                </tr>
+                <tr>
+                    <td id="darr">Darr</td>
+                    <td id="darr-role">Participant</td>
+                    <td id="darr-fname">Khubaib Ahmad</td>
+                </tr>
+                <tr>
+                    <td id="h">Husnain</td>
+                    <td id="h-role">Participant</td>
+                    <td id="h-fname">Husnain Mehdi</td>
+                </tr>
+                <tr>
+                    <td id="shah"></td>
+                    <td id="shah-role"></td>
+                    <td id="shah-fname"></td>
+                </tr>
+            </table>
+        </div>
+
+        <hr id="hr=element">
+
+        <div class="guest-data">
+            <p>Guests/Visitors:</p>
+            <p id="guests"> XYZ</p>
+        </div>
+    </div>
+    </div>
+
+{%endblock%}

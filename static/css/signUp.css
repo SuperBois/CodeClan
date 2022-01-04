@@ -47,6 +47,10 @@ header.container {
   transition: all 0.3s ease 0s;
 }
 
+.loginfrm {
+  color: white;
+}
+
 .cta:hover {
   background-color: rgba(0, 136, 169, 0.8);
 }
@@ -233,6 +237,7 @@ form .txt_field {
   border: none;
   background: none;
   outline: none;
+  color: white;
 }
 
 .txt_field label {

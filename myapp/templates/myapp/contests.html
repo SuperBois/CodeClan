@@ -1,0 +1,47 @@
+{% extends 'myapp/base.html'  %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/viewProblems.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<section class="home-section">
+</style>
+    </head>
+
+        <body>
+
+            <table style="width:100%" ;>
+                <thead>
+                    <tr>
+                        <th>Number</th>
+                        <th>Contest Title</th>
+                        <th>1st Page</th>
+                        <th>2nd Page</th>
+                        <th>3rd Page</th>
+                    </tr>
+                </thead>
+                <caption><b>
+                        <h2>Explore Contests</h2>
+                    </b></caption>
+                {% for contest in contests %}
+                <tr>
+                    <td>{{contest.competition_id}}</td>
+                    <td>{{contest.competition_title}}</td>
+                    <td>{{contest.prize_1st}}</td>
+                    <td>{{contest.prize_2nd}}</td>
+                    <td>{{contest.prize_3rd}}</td>
+                </tr>
+                {%endfor%}
+            </table>
+
+        </body>
+
+        </html>
+        
+        </section>
+    </section>
+{% endblock %}

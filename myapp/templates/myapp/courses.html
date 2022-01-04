@@ -1,0 +1,44 @@
+{% extends 'myapp/base.html'  %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/viewProblems.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<section class="home-section">
+</style>
+    </head>
+
+        <body>
+
+            <table style="width:100%" ;>
+                <thead>
+                    <tr>
+                        <th>Number</th>
+                        <th>Course name</th>
+                        <th>Created On</th>
+                    </tr>
+                </thead>
+                <caption><b>
+                        <h2>Explore Courses</h2>
+                    </b></caption>
+                {% for course in courses %}
+                <tr>
+                    <td>{{course.course_id}}</td>
+                    <td>{{course.course_name}}</td>
+                    <td>{{course.created_on}}</td>
+                    <td><a href='{% url "course" course.course_id %}'>View Details</a></td>
+                </tr>
+                {%endfor%}
+            </table>
+
+        </body>
+
+        </html>
+        
+        </section>
+    </section>
+{% endblock %}

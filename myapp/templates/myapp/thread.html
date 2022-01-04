@@ -1,0 +1,37 @@
+{% extends 'myapp/base.html' %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/thread.css' %}">
+{% endblock %}
+
+{% block content%}
+<div class="home-section">
+    <h2>Discussion Panel</h2>
+    <hr>
+    <h3>Thread Topic: {{thread.topic}}</h3>
+    <span2 style="padding-left:30px;">Created By: {{ creator.user_name }}</span2>
+    <span3 style="padding-left:30px;">Date: {{ thread.date_created }}</span3>
+    <span4 style="padding-left:30px;">Views: {{ thread.views }}</span4>
+    <span5 style="padding-left:30px;">Respones: {{thread.responses}} </span5>
+
+    <h3>Problem Description:</h3>
+    <p style="font-size: 14px;">{{ thread.statement }}</p>
+
+    {% for reply in replies %}
+    <div
+        style="padding-top:12px; border-radius: 20px; margin-bottom: 0.5em; margin-top: 0.2em; padding-bottom: 10px; padding-left: 120px; background-color: #6f7879 ;">
+        <p style='padding-top: 0px; padding-left: 0px; font-weight: normal;'>{{ reply.1 }}</p>
+        <span style="padding-top: 50px"> <cite style="font-size: 12px;"><b>Replied By: {{ reply.2 }}</span>
+    </div>
+    {% endfor %}
+    <h3 style="padding-top: 10px; font-size: 20px;">Answers:</h3>
+    {% for answer in answers %}
+    <div>
+        <p style="padding-top: 10px;">{{ answer.2 }} : </p>
+        <p style="padding-top: 0px; padding-left: 50px; font-weight: normal;">{{answer.1}}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

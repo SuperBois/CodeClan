@@ -1,0 +1,50 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/viewProblems.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="home-section">
+    </style>
+    </head>
+
+    <body>
+
+<table style="width:100%" ;>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Discussion Topic</th>
+            <th>Date Created</th>
+            <th>Views</th>
+            <th>Responses</th>
+        </tr>
+    </thead>
+    <caption><b>
+            <h2>Explore Discussion Threads</h2>
+        </b></caption>
+    {% for thread in discussions_thread %}
+    <tr>
+        <td>{{thread.thread_id}}</td>
+        <td>{{thread.topic}}</td>
+        <td>{{thread.date_created}}</td>
+        <td>{{thread.views}}</td>
+        <td>{{thread.responses}}</td>
+        <td><a href='{% url "thread" thread.thread_id %}'>View</a></td>
+    </tr>
+    {%endfor%}
+</table>
+
+
+</body>
+
+</html>
+
+</section>
+</section>
+
+{% endblock%}

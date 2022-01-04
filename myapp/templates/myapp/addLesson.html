@@ -1,0 +1,33 @@
+{% extends 'myapp/base.html' %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/addLesson.css' %} ">
+{% endblock %}
+
+
+{% block content %}
+<div class="home-section">
+    <h2>Add Lesson</h2>
+    <hr>
+    <div class="hero-container">
+        <div class="hero-right-col">
+            <h1>New Lesson</h1>
+            <form method="post">
+                <div class="txt_field">
+                    <input type="text" required>
+                    <span></span>
+                    <label style="font-family: Poppins; font-size: 0.9em;">lesson_title</label>
+                </div>
+                <div class="txt_field">
+                    <input type="text" required>
+                    <span></span>
+                    <label style="font-family: Poppins; font-size: 0.9em;">lesson_description</label>
+                </div>
+                <input type="submit" value="Add Lesson">
+                
+            </form>
+        
+        </div>
+    </div>
+</div>
+
+ {% endblock %}

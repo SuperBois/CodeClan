@@ -23,6 +23,7 @@ CREATE TABLE Users (
     user_email VARCHAR(255) NOT NULL,
     fname VARCHAR(255) NOT NULL,
     lname VARCHAR(255) NOT NULL,
+    user_password VARCHAR(20) NOT NULL default 'student123',
     XP INT DEFAULT 0,
     gender VARCHAR(10),
     country VARCHAR(255),
@@ -53,10 +54,11 @@ CREATE TABLE skill_path (
     skill_name VARCHAR(255),
     PRIMARY KEY (path_id)
 );
-    
+
 CREATE TABLE skillpath_enrollment (
-    user_id INT NOT NULL,
     path_id INT NOT NULL,
+    user_id INT NOT NULL,
+    progress varchar(15) default 'started',
     PRIMARY KEY (user_id , path_id),
     FOREIGN KEY (user_id)
         REFERENCES Users (user_id),
@@ -65,14 +67,14 @@ CREATE TABLE skillpath_enrollment (
 );
 
 CREATE TABLE Instructor (
-    instructor_id INT NOT NULL,
+    instructor_id INT NOT NULL auto_increment,
     instructor_name VARCHAR(255),
     linkedin_link VARCHAR(255),
     PRIMARY KEY (instructor_id)
 );
 
 CREATE TABLE Course (
-    course_id INT NOT NULL,
+    course_id INT NOT NULL auto_increment,
     course_name VARCHAR(255) NOT NULL,
     course_description TEXT NOT NULL,
     instructor_id INT NOT NULL,
@@ -282,13 +284,12 @@ CREATE TABLE Ranking (
         REFERENCES Competition (competition_id)
 );
 
-
 CREATE TABLE Question_threads (
     thread_id INT NOT NULL AUTO_INCREMENT,
     topic VARCHAR(255) NOT NULL,
     statement TEXT NOT NULL,
     creator_user_id INT NOT NULL,
-    date_created DATETIME NOT NULL,
+	date_created timestamp NOT NULL DEFAULT current_timestamp(),
     views INT NOT NULL DEFAULT 0,
     responses INT NOT NULL DEFAULT 0,
     PRIMARY KEY (thread_id),
@@ -299,7 +300,10 @@ CREATE TABLE Question_threads (
 CREATE TABLE Message (
     message_id INT NOT NULL AUTO_INCREMENT,
     message TEXT NOT NULL,
-    PRIMARY KEY (message_id)
+    from_user_id INT NOT NULL,
+    PRIMARY KEY (message_id),
+    FOREIGN KEY (from_user_id)
+		REFERENCES Users (user_id)
 );
 
 
@@ -315,12 +319,9 @@ CREATE TABLE Attachments (
 CREATE TABLE Answer (
     thread_id INT NOT NULL AUTO_INCREMENT,
     message_id INT NOT NULL,
-    user_id INT NOT NULL,
     PRIMARY KEY (thread_id , message_id),
     FOREIGN KEY (message_id)
         REFERENCES Message (message_id),
-    FOREIGN KEY (user_id)
-        REFERENCES Users (user_id),
     FOREIGN KEY (thread_id)
         REFERENCES Question_threads (thread_id)
 );
@@ -329,14 +330,11 @@ CREATE TABLE Answer (
 CREATE TABLE Reply (
     thread_id INT NOT NULL,
     message_id INT NOT NULL,
-    from_user_id INT NOT NULL,
     PRIMARY KEY (thread_id , message_id),
     FOREIGN KEY (thread_id)
         REFERENCES Question_threads (thread_id),
     FOREIGN KEY (message_id)
-        REFERENCES Message (message_id),
-    FOREIGN KEY (from_user_id)
-        REFERENCES Users (user_id)
+        REFERENCES Message (message_id)
 );
 
 CREATE TABLE Reaction (
@@ -363,12 +361,12 @@ CREATE TABLE Comments (
         REFERENCES Answer (message_id)
 );
 
-    
 CREATE TABLE Problems (
     problem_id INT NOT NULL,
+    problem_name VARCHAR(20) NOT NULL,
     problem_text TEXT NOT NULL,
     difficulty_level VARCHAR(30),
-    category_id INT NOT NULL,
+    category varchar(50) NOT NULL,
     acceptance_rate INT NOT NULL,
     PRIMARY KEY (problem_id)
 );
@@ -408,16 +406,23 @@ CREATE TABLE group_members (
 CREATE TABLE Sent_messages (
     message_id INT NOT NULL AUTO_INCREMENT,
     message_body TEXT NOT NULL,
-    receiver_id INT,
-    group_id INT,
+    group_id INT NOT NULL,
     from_user_id INT NOT NULL,
     sendtime TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP (),
+    viewed bool NOT NULL DEFAULT false,
     PRIMARY KEY (message_id),
     FOREIGN KEY (from_user_id)
-        REFERENCES Users (user_id),
-    FOREIGN KEY (receiver_id)
         REFERENCES Users (user_id),
     FOREIGN KEY (group_id)
         REFERENCES User_groups (group_id)
 );
-    
+
+CREATE TABLE Notifications(
+	notification_id INT NOT NULL auto_increment,
+    notification_message varchar(255) NOT NULL,
+    user_id INT NOT NULL,
+    PRIMARY KEY (notification_id),
+    FOREIGN KEY (user_id)
+		REFERENCES Users(user_id)
+);
+

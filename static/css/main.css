@@ -12,6 +12,12 @@ body {
   background-color: rgba(255, 255, 255, 0.849);
 }
 
+developer {
+  margin: 10px;
+  padding: 10px;
+  background-color: #000;
+}
+
 header.container {
   display: -webkit-box;
   display: -ms-flexbox;

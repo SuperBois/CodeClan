@@ -1,0 +1,35 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+{% block css%}
+<link rel="stylesheet" href="{% static '/css/dashboard.css' %}">  
+{% endblock %}
+
+{% block sidenavbar%}
+{% endblock %}
+
+{% block content %}
+    <div class= "home-section">
+
+        <form action="" method="POST">
+            {% csrf_token %}
+              
+              <tbody>
+               <tr class="table_row">
+                <form action="" method="post">
+                  {% for field in form %}
+                    <td>
+                     <table>
+                      <tr><td>{{ field.label }}</td></tr>
+                      <tr><td>{{ field }}</td></tr>
+                     </table>
+                    </td>
+                  {% endfor %}
+                 </form>
+                </tr>
+               </tbody>
+              
+            <input type="submit" class="cta">
+    
+        </form>
+    </div>
+{% endblock %}

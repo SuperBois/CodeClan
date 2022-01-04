@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeClan</title>
+    <link rel="stylesheet" href="css/manageUsers.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<body>
+    <header class="container">
+        <img class="navbar-logo" src="project images\CC.jpg" alt="CodeClan Logo">
+        <ul class="primary-nav">
+            <li class="home"><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'problems' %}">Explore Problems</a></li>
+            <li><a href="{% url 'discussions' %}">Discussions</a></li>
+            <li><a href="{% url 'contests' %}">Contest Calendar</a></li>
+        </ul>
+        <ul class="secondary-nav">
+            <li><a href="{% url 'support' %}">Support</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a class="cta" href="{% url 'register' %}">Sign Up</a></li>
+        </ul>
+
+    </header>
+
+    <div class="hero">
+        <div class="sidebar">
+            <div class="logo-details">
+                <p>ADMINISTRATOR</p>
+            </div>
+            <ul class="nav-list">
+
+                <li>
+                    <a href="#">
+
+                        <span class="links_name">View Users</span>
+                    </a>
+                </li>
+                <li>
+
+
+                    <a href="#">
+
+                        <span class="links_name">Manage Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+
+
+
+                        <span class="links_name">Manage Roles</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="links_name">View Database</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="links_name">Manage Database</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="links_name">View Site Data</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="links_name">Manage Site Data</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        let sidebar = document.querySelector(".sidebar");
+        sidebar.classList.toggle("open");
+    </script>
+
+
+    <div class="home-section">
+        <h2>Manage Users</h2>
+        <hr>
+        <div class="search-container">
+            <div class="searchbox">
+                <form>
+                    Search user/username &nbsp; &nbsp;
+                    <input class="input-box" type="text" placeholder=" Search...." name="search">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <p style="margin-top: 5em; margin-left: 8.8em; font-size: 17px; font-weight: bold; padding-bottom: 0.5em;">Search results: </p>
+        <div class="search-results-heading">
+            
+            <div class="search-results">
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae, temporibus voluptatem nisi dolore
+                    sunt
+                    natus. Expedita ex tempora porro praesentium reiciendis magnam quos soluta, eligendi ipsa. Minima
+                    modi
+                    facilis laudantium!
+                </p>
+            </div>
+        </div>
+        
+        <div class="selected-user">
+            <p style="font-size: 17px; font-weight: bold; padding-top: 1em; padding-bottom: .5em;">Selected User:</p>
+            <p>
+                First Name: <span id="f-name">FIRST NAME</span>
+            </p>
+            <p>
+                Last Name: <span id="f-name">LAST NAME</span>
+            </p>
+            <p>
+                Change Password:
+                <div class="input-box">
+                    <form>
+                        <input class="input-box" type="text" style="font-size: 0.85em;" placeholder="New Password" name="change-password">
+                        <button type="submit">Change</button>
+                    </form>
+                </div>
+            </p>
+            <p>
+                Change Role:
+                <div class="input-box">
+                    <form>
+                        <input class="input-box" type="text" style="font-size: 0.85em;" placeholder="New Password" name="change-password">
+                        <button type="submit">Change</button>
+                    </form>
+                </div>
+            </p>
+        </div>
+<br><hr>
+    </div>
+
+
+
+    <footer>
+        <div class="main-content">
+            <div class="left box">
+                <h2 style="font-family: Poppins;">About us</h2>
+                <div class="content">
+                    <p>CodeClan is a website for developers to learn, compete and improve their programming skills.</p>
+                    <div class="social">
+                        <a href="https://www.instagram.com/sheraz_hussain71/"><span
+                                class="fab fa-facebook-f"></span></a>
+                        <a href="#"><span class="fab fa-twitter"></span></a>
+                        <a href="https://www.instagram.com/sheraz_hussain71/"><span class="fab fa-instagram"></span></a>
+                        <a href="https://www.instagram.com/sheraz_hussain71/"><span class="fab fa-youtube"></span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="center box">
+                <h2 style="font-family: Poppins;">Address</h2>
+                <div class="content">
+                    <div class="place">
+                        <span class="fas fa-map-marker-alt"></span>
+                        <span style="font-family: Poppins;" class="text">Wah Cantt, next to Kips College</span>
+                    </div>
+                    <div class="phone">
+                        <span class="fas fa-phone-alt"></span>
+                        <span style="font-family: Poppins;" class="text">0900-78601</span>
+                    </div>
+                    <div class="email">
+                        <span class="fas fa-envelope"></span>
+                        <span style="font-family: Poppins;" class="text">www.soiyyaddSheraaazHussayyn.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right box">
+                <h2 style="font-family: Poppins;">Contact us</h2>
+                <div class="content">
+                    <form action="#">
+                        <div class="email">
+                            <div style="font-family: Poppins;" class="text">Email *</div>
+                            <input type="email" required>
+                        </div>
+                        <div class="msg">
+                            <div style="font-family: Poppins;" class="text">Message *</div>
+                            <textarea rows="2" cols="25" required></textarea>
+                        </div>
+                        <div class="btn">
+                            <button style="font-family: Poppins;" type="submit">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <center>
+                <span style="font-family: Poppins;" class="credit">Created By <a
+                        href="https://www.instagram.com/sheraz_hussain71/">Lychee</a> | </span>
+                <span style="font-family: Poppins;" class="far fa-copyright"></span><span style="font-family: Poppins;">
+                    2020 All rights reserved.</span>
+            </center>
+        </div>
+    </footer>
+
+
+
+</body>
+
+</html

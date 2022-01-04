@@ -1,37 +1,13 @@
+{% extends 'myapp/base.html' %}
 {% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeClan</title>
+{% block css %}
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+{% endblock %}
 
-</head>
+{% block sidenavbar %}
+{% endblock %}
 
-<body>
-    <header class="container">
-        <img class="navbar-logo" src="{% static 'images/CC.jpg' %}" alt="CodeClan Logo">
-        <ul class="primary-nav">
-            <li class="home"><a href="#">Home</a></li>
-            <li><a href="#">Explore Problems</a></li>
-            <li><a href="#">Discussions</a></li>
-            <li><a href="#">Contest Calendar</a></li>
-        </ul>
-        <ul class="secondary-nav">
-            <li><a href="#">Support</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a class="cta" href="#">Sign Up</a></li>
-        </ul>
-
-    </header>
-
+{% block content %}
     <!-- continue from here -->
     <div class="hero-container">
         <div class="hero-left-col">
@@ -48,22 +24,28 @@
                 </div>
             </figure>
         </div>
-
+        {% if not user.is_authenticated %}
         <div class="hero-right-col">
             <h1>Login </h1>
-            <form method="post">
+            <form action="" method="POST">
+                {% csrf_token %}
                 <div class="txt_field">
-                    <input type="text" required>
+                    <input type="text" name='username' required style="color: rgba(255, 255, 255, 0.966)">
                     <span></span>
-                    <label style="font-family: Poppins; font-size: 0.9em;">Username/Email Address</label>
+                    <label style="font-family: Poppins; font-size: 0.9em;">Username</label>
                 </div>
                 <div class="txt_field">
-                    <input type="password" required>
+                    <input type="password" name = 'password' required style="color: rgba(255, 255, 255, 0.966)">
                     <span></span>
                     <label style="font-family: Poppins; font-size: 0.9em;">Password</label>
                 </div>
                 <div style="font-family: Poppins; font-size: 0.8em;"class="pass">Forgot Password?</div>
                 <input type="submit" value="Login">
+
+                {% for message in messages %}
+                {{message}}
+                {% endfor %}
+
                 <div style="font-family: Poppins; font-size: 0.8em;"class="signup_link">
                     Not a member? <a href="#">Signup</a>
                     <div class="icon-plugins">
@@ -73,7 +55,15 @@
                     </div>
                 </div>
             </form>
+            <!-- <form action="" method="POST">
+                {% csrf_token %}
+                {% for field in form %}
+                    <p>{{ field.label }}: <br> {{ field }}</p>
+                {% endfor %}
+                <button type="submit">Login</button>
+            </form> -->
         </div>
+        {% endif %}
     </div>
 
 
@@ -189,73 +179,4 @@
             </div>
         </div>
     </section>-->
-
-
-    <footer>
-        <div class="main-content">
-            <div class="left box">
-                <h2 style="font-family: Poppins;">About us</h2>
-                <div class="content">
-                    <p>CodeClan is a website for developers to learn, compete and improve their programming skills.</p>
-                    <div class="social">
-                        <a href="https://www.instagram.com/sheraz_hussain71/"><span
-                                class="fab fa-facebook-f"></span></a>
-                        <a href="#"><span class="fab fa-twitter"></span></a>
-                        <a href="https://www.instagram.com/sheraz_hussain71/"><span class="fab fa-instagram"></span></a>
-                        <a href="https://www.instagram.com/sheraz_hussain71/"><span class="fab fa-youtube"></span></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="center box">
-                <h2 style="font-family: Poppins;">Address</h2>
-                <div class="content">
-                    <div class="place">
-                        <span class="fas fa-map-marker-alt"></span>
-                        <span style="font-family: Poppins;" class="text">Wah Cantt, next to Kips College</span>
-                    </div>
-                    <div class="phone">
-                        <span class="fas fa-phone-alt"></span>
-                        <span style="font-family: Poppins;" class="text">0900-78601</span>
-                    </div>
-                    <div class="email">
-                        <span class="fas fa-envelope"></span>
-                        <span style="font-family: Poppins;" class="text">www.soiyyaddSheraaazHussayyn.com</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="right box">
-                <h2 style="font-family: Poppins;">Contact us</h2>
-                <div class="content">
-                    <form action="#">
-                        <div class="email">
-                            <div style="font-family: Poppins;" class="text">Email *</div>
-                            <input type="email" required>
-                        </div>
-                        <div class="msg">
-                            <div style="font-family: Poppins;" class="text">Message *</div>
-                            <textarea rows="2" cols="25" required></textarea>
-                        </div>
-                        <div class="btn">
-                            <button style="font-family: Poppins;" type="submit">Send</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="bottom">
-            <center>
-                <span style="font-family: Poppins;" class="credit">Created By <a
-                        href="https://www.instagram.com/sheraz_hussain71/">Lychee</a> | </span>
-                <span style="font-family: Poppins;" class="far fa-copyright"></span><span style="font-family: Poppins;">
-                    2020 All rights reserved.</span>
-            </center>
-        </div>
-    </footer>
-
-
-
-</body>
-
-</html>
+{% endblock%}

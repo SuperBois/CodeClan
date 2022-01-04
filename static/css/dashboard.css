@@ -11,7 +11,7 @@ body {
           box-sizing: border-box;
   max-width: 100%;
   max-height: 100%;
-  background-color: rgba(255, 255, 255, 0.849);
+  background-color: white;
 }
 
 header.container {
@@ -575,7 +575,7 @@ footer {
 
 .home-section {
   position: relative;
-  background: white;
+  background: #e4e9f7;
   min-height: 100vh;
   top: 0;
   margin-right: 0;
@@ -588,25 +588,78 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding-left: 42em;
+  padding-left: 0;
   text-align: left;
+}
+
+.home-section h2 {
+  padding-top: 1em;
+  padding-left: 35em;
+  padding-bottom: 1em;
+}
+
+.home-section .top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.home-section .left-div {
+  margin-top: 4em;
+  margin-left: 17.5em;
+}
+
+.home-section .right-div {
+  margin-top: 2em;
+  padding-left: 49em;
+}
+
+.home-section .bottom-div {
+  padding-left: 17.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .home-section p {
   padding-left: 3em;
+  padding: 1em 0;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  font-size: 1.2em;
 }
 
 .dp {
-  max-width: 15em;
-  max-height: 15em;
+  max-width: 16em;
+  max-height: 16em;
   border-radius: 5em;
   margin-bottom: 1.5em;
+}
+
+.courses {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c {
+  max-width: 16em;
+  max-height: 16em;
+  border-radius: 5em;
+}
+
+.c1, .c2, .c3, .c4 {
+  padding: 0 2em;
+}
+
+.c1 p, .c2 p, .c3 p, .c4 p {
+  margin-right: 0;
+  padding-left: 4em;
 }
 
 .links_name {

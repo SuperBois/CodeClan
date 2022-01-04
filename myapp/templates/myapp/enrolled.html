@@ -1,0 +1,15 @@
+{% extends "myapp/base.html" %}
+{% load static %}
+
+{% block sidenavbar %}
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static '/css/dashboard.css' %}">  
+{% endblock %}
+
+{% block content %}
+<div class="home-section">
+    <p> Sorry you cannot register because the system is still under development. </p>
+    <a href="{% url "courses" %}">Click here to navigate back to Courses.</a>
+</div>
+{% endblock %}

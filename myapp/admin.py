@@ -1,3 +1,46 @@
 from django.contrib import admin
 
+from myapp.models import Achievements, Answer, Assignment, AssignmentQuestion, Attachments, Comments, Competition, Course, CourseAssignments, CourseEnrollment, GroupMembers, Instructor, Judges, Languages, Lesson, Message, Organizers, Participants, Problems, QuestionThreads, Quiz, QuizAttempts, QuizQOptions, QuizQuestions, Ranking, Ranks, Reaction, Reply, Review, Roles, SentMessages, SkillPath, SkillpathEnrollment, SolutionQuestion, Solutions, Submissions, UserGroups, Users
+
 # Register your models here.
+
+from .models import *
+
+admin.site.register(Achievements)
+admin.site.register(Answer)
+admin.site.register(Assignment)
+admin.site.register(Attachments)
+admin.site.register(Comments)
+admin.site.register(Competition)
+admin.site.register(Course)
+admin.site.register(CourseAssignments)
+admin.site.register(CourseEnrollment)
+admin.site.register(Instructor)
+admin.site.register(Judges)
+admin.site.register(Languages)
+admin.site.register(Lesson)
+admin.site.register(Message)
+admin.site.register(Organizers)
+admin.site.register(Participants)
+admin.site.register(Problems)
+admin.site.register(QuestionThreads)
+admin.site.register(Quiz)
+admin.site.register(QuizAttempts)
+admin.site.register(Ranking)
+admin.site.register(Ranks)
+admin.site.register(Reaction)
+admin.site.register(Reply)
+admin.site.register(Roles)
+admin.site.register(SentMessages)
+admin.site.register(Solutions)
+admin.site.register(Submissions)
+admin.site.register(UserGroups)
+admin.site.register(Users)
+admin.site.register(AssignmentQuestion)
+admin.site.register(GroupMembers)
+admin.site.register(QuizQOptions)
+admin.site.register(QuizQuestions)
+admin.site.register(Review)
+admin.site.register(SkillPath)
+admin.site.register(SkillpathEnrollment)
+admin.site.register(SolutionQuestion)

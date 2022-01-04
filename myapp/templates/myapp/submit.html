@@ -1,0 +1,15 @@
+{% extends "myapp/base.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static '/css/dashboard.css' %}">  
+{% endblock %}
+
+{% block sidenavbar %}
+{% endblock %}
+{% block content %}
+<div class="home-section">
+    <p> Your solution has been submitted. You will recieve response shortly. </p>
+    <a href="{% url "problems" %}">Click here to navigate back to Explore problems.</a>
+</div>
+{% endblock %}
